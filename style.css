@@ -1,1 +1,139 @@
 /* Add you CSS here */
+
+/* Set the background color to white for the whole page */
+body {
+  background-color: #fff; /* White background */
+  font-family: Helvetica, Arial, sans-serif; /* Modern sans-serif font */
+  margin: 0; /* Remove default margin */
+  padding: 0; /* Remove default padding */
+}
+
+/* Style the header section */
+header {
+  display: flex; /* Place header content in a row */
+  justify-content: space-between; /* Space between left and right parts */
+  align-items: flex-end; /* Align items to the bottom */
+  padding: 32px 40px 16px 40px; /* Add space around header */
+  border-bottom: 1px solid #eee; /* Light line under header */
+  background-color: #000; /* Black background */
+  color: #fff; /* White text */
+}
+
+/* Make sure all text in the header is white */
+header h1,
+header .subheader,
+header nav a {
+  color: #fff; /* White text */
+}
+
+/* Style for the left part of the header (name and subheader) */
+.header-left {
+  display: flex;
+  flex-direction: column; /* Stack name and subheader vertically */
+}
+
+/* Style for your name */
+header h1 {
+  font-size: 2.2rem; /* Large font size */
+  margin: 0; /* Remove default margin */
+  font-weight: bold; /* Bold text */
+  letter-spacing: 2px; /* Space between letters */
+}
+
+/* Style for the subheader */
+.subheader {
+  font-size: 1.1rem; /* Slightly smaller font */
+  color: #555; /* Dark gray color */
+  margin-top: 6px; /* Space above subheader */
+  margin-bottom: 0; /* Remove bottom margin */
+}
+
+/* Style the navigation links */
+nav ul {
+  list-style: none; /* Remove bullet points */
+  margin: 0; /* Remove default margin */
+  padding: 0; /* Remove default padding */
+  display: flex; /* Place links in a row */
+  gap: 24px; /* Space between links */
+  align-items: center; /* Center links vertically */
+  height: 100%; /* Full height of header */
+}
+
+/* Style for each navigation link */
+nav a {
+  text-decoration: none; /* Remove underline */
+  color: #fff; /* White text color */
+  font-size: 1rem; /* Normal font size */
+  font-weight: 500; /* Medium weight */
+  transition: color 0.2s; /* Smooth color change on hover */
+}
+
+/* Change color when hovering over links */
+nav a:hover {
+  color: #0072ff; /* Blue color on hover */
+}
+
+/* Style the Projects section */
+.projects {
+  max-width: 1200px; /* Allow more width for the grid to grow */
+  margin: 40px auto 0 auto; /* Center section horizontally and add space above */
+  padding: 0 40px; /* Add space on the sides */
+}
+
+/* Container for the project placeholders */
+/* The grid now stretches to match the header's left and right edges */
+.projects-grid {
+  display: flex; /* Use flexbox for layout */
+  flex-wrap: wrap; /* Allow items to wrap to next line */
+  justify-content: space-between; /* Space out columns to edges */
+  gap: 32px; /* Space between columns and rows */
+  row-gap: 32px; /* Space between rows (same as columns) */
+  width: 100%; /* Take full width of .projects container */
+  margin: 0; /* No extra margin needed */
+}
+
+/* Style for each black rectangle placeholder */
+/* The width is now calculated to fit 2 columns with a 32px gap between */
+.project-placeholder {
+  width: calc((100% - 32px) / 2);
+  aspect-ratio: 1 / 1.618; /* Golden ratio */
+  background-color: #111; /* Black color */
+  /* Removed margin-bottom so row spacing is controlled by grid gap */
+}
+
+/* Show all project images in color by default */
+.project-placeholder img {
+  border: none;
+  box-sizing: border-box;
+  filter: none; /* Show color */
+  transition: filter 0.3s;
+}
+
+/* When hovering over any image, make all images black and white */
+.projects-grid:hover .project-placeholder img {
+  filter: grayscale(100%);
+}
+
+/* When hovering over a specific image, keep it in color */
+.project-placeholder img:hover {
+  filter: none !important; /* Stay in color even when parent is hovered */
+}
+
+/* Responsive: Make sure grid looks good on small screens */
+@media (max-width: 600px) {
+  .projects {
+    padding: 0 10px; /* Less side padding on small screens */
+  }
+  .projects-grid {
+    flex-direction: column; /* Stack rectangles vertically */
+    align-items: center; /* Center rectangles */
+    gap: 24px; /* Space between columns and rows */
+    row-gap: 24px; /* Space between rows (same as columns) */
+    width: 100%;
+  }
+  .project-placeholder {
+    width: 90vw; /* Make rectangles fit the screen */
+    aspect-ratio: 1 / 1.618;
+    /* Removed margin-bottom for consistent row gap */
+  }
+}
